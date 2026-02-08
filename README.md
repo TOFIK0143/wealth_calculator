@@ -1,13 +1,32 @@
-# WealthCalculator
+# 💰 Investment Calculator
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.1.
+A modern, production-ready investment calculator built with Angular 21+ featuring reactive programming patterns, signals, and comprehensive documentation.
 
-## Development server
+[![Angular](https://img.shields.io/badge/Angular-21+-red)](https://angular.io)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.2+-blue)](https://www.typescriptlang.org)
+[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)](https://github.com)
+
+## ✨ Features
+
+- 💰 **Compound Interest Calculator** - Calculates investment growth over time
+- 📊 **Multi-Year Projection** - Projects up to 100 years into the future
+- 🎯 **Monthly Contributions** - Support for regular monthly investments
+- ✅ **Input Validation** - Comprehensive validation with error messages
+- 📱 **Responsive Design** - Works perfectly on desktop, tablet, and mobile
+- 🎨 **Professional UI** - Modern, clean interface with smooth animations
+- 📈 **Summary Statistics** - Shows final value, total interest, and total invested
+- 🔄 **Reset Functionality** - Clear form and start over
+- 🚀 **Production Ready** - Security, performance, and best practices implemented
+
+## 🚀 Quick Start
+
+### Development Server
 
 To start a local development server, run:
 
 ```bash
-ng serve
+npm install
+ng serve --open
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
