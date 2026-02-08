@@ -1,0 +1,54 @@
+<!-- Footer Container -->
+<footer class="footer-container">
+  <div class="footer-content">
+    
+    <!-- Logo & Brand Section -->
+    <div class="brand-section">
+      <div class="logo-wrapper">
+        <span class="trademark-logo">{{ tradeMark }}</span>
+      </div>
+      <div class="brand-info">
+        <h3 class="developer-name">{{ developerName }}</h3>
+        <p class="developer-title">{{ developerTitle }}</p>
+      </div>
+    </div>
+
+    <!-- Social Links Section -->
+    <div class="social-section">
+      <div class="social-links">
+        <!-- LinkedIn Link -->
+        <a 
+          [href]="socialLinks.linkedin.url" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="social-link linkedin"
+          [title]="socialLinks.linkedin.label"
+          aria-label="Visit LinkedIn Profile"
+        >
+          <span class="social-label">LinkedIn</span>
+          <span class="social-icon">{{ socialLinks.linkedin.icon }}</span>
+        </a>
+        
+        <!-- GitHub Link -->
+        <a 
+          [href]="socialLinks.github.url" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="social-link github"
+          [title]="socialLinks.github.label"
+          aria-label="Visit GitHub Profile"
+        >
+          <span class="social-label">GitHub</span>
+          <span class="social-icon">{{ socialLinks.github.icon }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright Section -->
+  <div class="footer-bottom">
+    <p class="copyright">
+      &copy; {{ currentYear }} {{ developerName }}. All rights reserved.
+    </p>
+  </div>
+</footer>

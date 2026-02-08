@@ -1,0 +1,223 @@
+/**
+ * Investment Results Component Styles
+ * Modern CSS with custom properties, responsive design, and accessibility
+ * 
+ * Color Palette:
+ * - Primary: #1a5d5d (dark teal)
+ * - Accent: #83e6c0 (light teal)
+ * - Highlight: #eaf8f6 (very light teal)
+ * - Neutral: #f5f5f5 (light gray)
+ */
+
+/* === CSS Custom Properties (Variables) === */
+:host {
+  --color-primary: #1a5d5d;
+  --color-accent: #83e6c0;
+  --color-highlight: #eaf8f6;
+  --color-neutral: #f9f9f9;
+  --color-text: #333;
+  --color-border: #e0e0e0;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --border-radius: 4px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.2s;
+  --font-mono: "Courier New", monospace;
+  --font-sans: "Roboto", sans-serif;
+}
+
+/* === Results Container === */
+.results-container {
+  max-width: 1000px;
+  margin: var(--spacing-xl) auto;
+  padding: 0 var(--spacing-md);
+  font-family: var(--font-sans);
+}
+
+/* === State Messages === */
+
+/* Empty state: No calculations yet */
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: #666;
+  font-size: 1rem;
+  background-color: var(--color-neutral);
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--color-accent);
+}
+
+/* Error state: Validation or calculation errors */
+.error-state {
+  padding: var(--spacing-lg);
+  background-color: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-lg);
+}
+
+.error-message {
+  color: #856404;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Loading state: Calculation in progress */
+.loading-state {
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: #666;
+  font-size: 1rem;
+}
+
+/* === Results Table Styles === */
+
+.results-table {
+  width: 100%;
+  margin: var(--spacing-xl) auto;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: var(--shadow-md);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+/* Table header styling */
+.results-table thead {
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.results-table th {
+  padding: 1.2rem var(--spacing-md);
+  text-align: right;
+  border-bottom: 2px solid #0d3a3a;
+}
+
+.results-table th:first-child {
+  text-align: center;
+}
+
+/* Table body styling */
+.results-table tbody {
+  color: var(--color-text);
+  font-size: 0.9rem;
+}
+
+/* Table row styling with hover effect */
+.result-row {
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color var(--transition-speed) ease;
+}
+
+.result-row:hover {
+  background-color: var(--color-neutral);
+}
+
+.result-row:last-child {
+  border-bottom: none;
+}
+
+/* Table data cells */
+.results-table td {
+  padding: var(--spacing-md);
+  text-align: right;
+}
+
+.results-table td:first-child {
+  text-align: center;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* Year column: Left-aligned with light background */
+.year-column {
+  background-color: var(--color-neutral);
+  font-size: 0.95rem;
+}
+
+/* Currency column: Monospace font for alignment */
+.currency-column {
+  font-family: var(--font-mono);
+  letter-spacing: 0.5px;
+}
+
+/* Highlight columns: Total interest and investment value */
+.highlight {
+  background-color: var(--color-highlight);
+  font-weight: 500;
+  color: #0d3a3a;
+}
+
+/* === Summary Section === */
+
+.summary-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, #f5f5f5 0%, var(--color-neutral) 100%);
+  border-radius: var(--border-radius);
+  border-top: 3px solid var(--color-accent);
+}
+
+/* Summary item card */
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  background-color: #ffffff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--color-accent);
+}
+
+.summary-label {
+  font-weight: 600;
+  color: var(--color-primary);
+  font-size: 0.95rem;
+}
+
+.summary-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0d3a3a;
+  font-family: var(--font-mono);
+  text-align: right;
+  min-width: 150px;
+}
+
+/* === Responsive Design === */
+
+@media (max-width: 768px) {
+  .results-table {
+    font-size: 0.8rem;
+  }
+
+  .results-table th,
+  .results-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .summary-section {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+
+  .summary-value {
+    min-width: auto;
+  }
+}

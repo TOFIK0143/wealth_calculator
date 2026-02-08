@@ -1,0 +1,97 @@
+/**
+ * Header Component Styles
+ * Application branding with modern CSS patterns
+ * 
+ * Color Palette:
+ * - Primary: #1a5d5d (dark teal)
+ * - Secondary: #0d3a3a (darker teal)
+ * - Accent: #83e6c0 (light teal)
+ * - Text: #a8d9d0 (muted light teal)
+ */
+
+/* === CSS Custom Properties (Variables) === */
+:host {
+  --color-primary: #1a5d5d;
+  --color-secondary: #0d3a3a;
+  --color-accent: #83e6c0;
+  --color-text-secondary: #a8d9d0;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --border-radius: 50%;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --transition-speed: 0.3s;
+  --font-sans: "Roboto", sans-serif;
+}
+
+/* === Header Container === */
+
+header {
+  text-align: center;
+  padding: var(--spacing-xl) var(--spacing-md);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  color: var(--color-accent);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* === Header Logo === */
+
+header img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  padding: 8px;
+  margin-bottom: var(--spacing-md);
+  transition: transform var(--transition-speed) ease;
+}
+
+/* Logo hover effect: Scale up */
+header img:hover {
+  transform: scale(1.1);
+}
+
+/* === Header Title === */
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+  letter-spacing: 1px;
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+}
+
+/* === Subtitle === */
+
+header p.subtitle {
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0 0;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* === Responsive Design === */
+
+@media (max-width: 600px) {
+  header {
+    padding: var(--spacing-lg) var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  header p.subtitle {
+    font-size: 0.8rem;
+  }
+
+  header img {
+    width: 50px;
+    height: 50px;
+  }
+}

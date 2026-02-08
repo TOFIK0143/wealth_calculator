@@ -1,0 +1,97 @@
+<!-- 
+  Investment Results Display Template
+  Shows calculation results, loading state, and error messages
+  Uses @let and @if/@else/@for control flow syntax (Angular 21+)
+-->
+
+<!-- Main results container with responsive padding -->
+<div class="results-container">
+  
+  <!-- LOADING STATE: Display spinner/message while calculating -->
+  @if (isCalculating$ | async) {
+    <div class="loading-state">
+      <p>Calculating your investment growth...</p>
+    </div>
+  }
+
+  <!-- ERROR STATE: Display validation or calculation errors -->
+  @let errorMsg = (errorMessage$ | async);
+  @if (errorMsg) {
+    <div class="error-state">
+      <p class="error-message">{{ errorMsg }}</p>
+    </div>
+  }
+
+  <!-- RESULTS DISPLAY: Main content area with results table and summary -->
+  @let results = (results$ | async);
+  @if (results) {
+    
+    <!-- EMPTY STATE: Show when no calculations have been performed -->
+    @if (!results || results.length === 0) {
+      <div class="empty-state">
+        <p>Please enter your investment details and click "Calculate" to see the results.</p>
+      </div>
+    } 
+    
+    <!-- RESULTS CONTENT: Show table and summary when calculations exist -->
+    @else {
+      <!-- Results Table: Year-by-year investment breakdown -->
+      <table class="results-table">
+        <thead>
+          <tr>
+            <!-- Table headers: Each column represents a metric -->
+            <th>Year</th>                   <!-- Investment year (1 to duration) -->
+            <th>Invested Capital</th>       <!-- Total amount invested so far -->
+            <th>Interest (Year)</th>        <!-- Interest earned in this year only -->
+            <th>Total Interest</th>         <!-- Cumulative interest up to this year -->
+            <th>Investment Value</th>       <!-- Total portfolio value at year end -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Loop through each year's result -->
+          @for (result of results; track result.year) {
+            <tr class="result-row">
+              <!-- Year number column -->
+              <td class="year-column">{{ result.year }}</td>
+              
+              <!-- Total amount invested (initial + contributions) -->
+              <td class="currency-column">{{ formatCurrency(result.totalInvestedAmount) }}</td>
+              
+              <!-- Interest earned in this specific year -->
+              <td class="currency-column">{{ formatCurrency(result.interestEarnedInYear) }}</td>
+              
+              <!-- Total cumulative interest (highlighted) -->
+              <td class="currency-column highlight">{{ formatCurrency(result.totalInterestEarned) }}</td>
+              
+              <!-- Total investment value at year end (highlighted) -->
+              <td class="currency-column highlight">{{ formatCurrency(result.valueEndOfYear) }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+
+      <!-- Summary Statistics: Key metrics from final year -->
+      @if (results.length > 0) {
+        <div class="summary-section">
+          <!-- Final Investment Value: Total worth at end of period -->
+          <div class="summary-item">
+            <span class="summary-label">Final Investment Value:</span>
+            <span class="summary-value">{{ formatCurrency(results[results.length - 1].valueEndOfYear) }}</span>
+          </div>
+          
+          <!-- Total Interest Earned: All interest accrued over period -->
+          <div class="summary-item">
+            <span class="summary-label">Total Interest Earned:</span>
+            <span class="summary-value">{{ formatCurrency(results[results.length - 1].totalInterestEarned) }}</span>
+          </div>
+          
+          <!-- Total Invested: Initial capital + all monthly contributions -->
+          <div class="summary-item">
+            <span class="summary-label">Total Invested:</span>
+            <span class="summary-value">{{ formatCurrency(results[results.length - 1].totalInvestedAmount) }}</span>
+          </div>
+        </div>
+      }
+    }
+  }
+</div>

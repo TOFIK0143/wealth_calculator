@@ -1,0 +1,173 @@
+/**
+ * User Input Form Component Styles
+ * Modern CSS with custom properties, responsive design, and accessibility
+ * 
+ * Color Palette:
+ * - Primary: #307e6c (medium teal)
+ * - Secondary: #2b996d (slightly darker teal)
+ * - Accent: #83e6c0 (light teal)
+ * - Text Light: #c2e9e0 (light text for dark background)
+ */
+
+/* === CSS Custom Properties (Variables) === */
+:host {
+  --form-bg-primary: #307e6c;
+  --form-bg-secondary: #2b996d;
+  --color-accent: #83e6c0;
+  --color-text-light: #c2e9e0;
+  --color-border: #76c0ae;
+  --color-dark: #1a1f1d;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --border-radius: 4px;
+  --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.2);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-focus: 0 0 8px rgba(131, 230, 192, 0.3);
+  --transition-speed: 0.3s;
+  --font-sans: "Roboto", sans-serif;
+}
+
+/* === Form Container === */
+
+form {
+  padding: var(--spacing-xl);
+  max-width: 500px;
+  margin: var(--spacing-xl) auto;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--form-bg-primary) 0%, var(--form-bg-secondary) 100%);
+  box-shadow: var(--shadow-md);
+  font-family: var(--font-sans);
+}
+
+/* === Input Group Layout === */
+
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  flex-wrap: wrap;
+}
+
+.input-group p {
+  flex: 1;
+  min-width: 200px;
+  margin: 0;
+}
+
+/* === Form Labels === */
+
+label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  letter-spacing: 0.5px;
+}
+
+/* === Input Fields === */
+
+input {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-light);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all var(--transition-speed) ease;
+  box-sizing: border-box;
+}
+
+/* Input focus state: Enhanced with glow effect */
+input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: var(--shadow-focus);
+}
+
+/* Input placeholder text */
+input::placeholder {
+  color: rgba(194, 233, 224, 0.6);
+}
+
+/* === Button Group Container === */
+
+.button-group {
+  display: flex;
+  gap: var(--spacing-md);
+  margin: 0;
+}
+
+/* === Button Styles === */
+
+button {
+  flex: 1;
+  padding: var(--spacing-sm);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--border-radius);
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  letter-spacing: 0.5px;
+}
+
+/* Button hover state: Lift effect with color change */
+button:hover {
+  background-color: #aaf1d6;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Button active state: Click feedback */
+button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Button disabled state: Reduced opacity */
+button:disabled {
+  background-color: var(--color-border);
+  color: #999;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+/* === Responsive Design === */
+
+@media (max-width: 600px) {
+  form {
+    padding: var(--spacing-lg);
+    margin: var(--spacing-md);
+  }
+
+  .input-group {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .input-group p {
+    min-width: auto;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}

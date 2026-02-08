@@ -1,0 +1,236 @@
+/**
+ * Footer Component Styles
+ * Matches application's teal color scheme
+ * 
+ * Color Palette (matches header and app theme):
+ * - Primary: #1a5d5d (dark teal)
+ * - Secondary: #0d3a3a (darker teal)
+ * - Accent: #83e6c0 (light teal)
+ * - Text: #a8d9d0 (muted light teal)
+ */
+
+/* === CSS Custom Properties (Variables) === */
+:host {
+  --color-primary: #1a5d5d;
+  --color-secondary: #0d3a3a;
+  --color-accent: #83e6c0;
+  --color-text-secondary: #a8d9d0;
+  --color-linkedin: #0077b5;
+  --color-github: #ffffff;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --border-radius: 50%;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --transition-speed: 0.3s;
+  --font-sans: 'Quicksand', sans-serif;
+}
+
+/* === Footer Container === */
+footer.footer-container {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  color: var(--color-accent);
+  padding: var(--spacing-xl) var(--spacing-md);
+  margin-top: 3rem;
+  border-top: 3px solid rgba(131, 230, 192, 0.2);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-sans);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: var(--spacing-xl);
+}
+
+/* === Brand Section === */
+.brand-section {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex: 1;
+  min-width: 250px;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: rgba(131, 230, 192, 0.1);
+  border-radius: var(--border-radius);
+  border: 2px solid rgba(131, 230, 192, 0.3);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-speed) ease;
+}
+
+.logo-wrapper:hover {
+  background: rgba(131, 230, 192, 0.2);
+  border-color: var(--color-accent);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(131, 230, 192, 0.2);
+}
+
+.trademark-logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--color-accent) 0%, #5fbfa4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 2px;
+  font-family: var(--font-sans);
+}
+
+.brand-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.developer-name {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+}
+
+.developer-title {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
+  letter-spacing: 0.3px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+}
+
+/* === Social Section === */
+.social-section {
+  display: flex;
+  align-items: center;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: auto;
+  padding: 0.5rem 1rem;
+  height: 50px;
+  border-radius: var(--border-radius);
+  background: rgba(131, 230, 192, 0.1);
+  border: 2px solid rgba(131, 230, 192, 0.3);
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  text-decoration: none;
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: var(--font-sans);
+}
+
+.social-link:hover {
+  background: rgba(131, 230, 192, 0.2);
+  border-color: var(--color-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(131, 230, 192, 0.15);
+}
+
+.social-link.linkedin:hover {
+  background: rgba(0, 119, 181, 0.15);
+  border-color: var(--color-linkedin);
+}
+
+.social-link.github:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-github);
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+}
+
+.social-label {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-accent);
+}
+
+/* === Footer Bottom Section === */
+.footer-bottom {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(131, 230, 192, 0.1);
+}
+
+.copyright {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.75;
+  letter-spacing: 0.3px;
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  footer.footer-container {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-lg);
+  }
+
+  .brand-section {
+    flex: none;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .social-section {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .logo-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+
+  .trademark-logo {
+    font-size: 1.5rem;
+  }
+
+  .developer-name {
+    font-size: 1.1rem;
+  }
+
+  .developer-title {
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,92 @@
+<!-- 
+  User Investment Input Form Template
+  Collects investment parameters from user
+  Uses two-way data binding with Signals and FormsModule
+-->
+
+<!-- Main form: submits to onSubmit() when user clicks Calculate -->
+<form (ngSubmit)="onSubmit()">
+  
+  <!-- FIRST ROW: Initial Investment and Monthly Contribution -->
+  <div class="input-group">
+    
+    <!-- Initial Investment Field: Starting capital amount -->
+    <!-- Initial Investment Input -->
+    <p>
+      <label for="initial-investment">Initial Investment (₹)</label>
+      <input
+        id="initial-investment"
+        type="number"
+        [(ngModel)]="initialInvestment"
+        name="initialInvestment"
+        min="0"
+        step="1000"
+        required
+        title="Enter the initial investment amount in rupees"
+      />
+    </p>
+    
+    <!-- Monthly Contribution Field: Amount to invest each month -->
+    <!-- Monthly Contribution Input -->
+    <p>
+      <label for="monthly-contribution">Monthly Contribution (₹)</label>
+      <input
+        id="monthly-contribution"
+        type="number"
+        [(ngModel)]="monthlyContribution"
+        name="monthlyContribution"
+        min="0"
+        step="500"
+        required
+        title="Enter the monthly investment amount in rupees"
+      />
+    </p>
+  </div>
+  
+  <!-- SECOND ROW: Annual Interest Rate and Investment Duration -->
+  <div class="input-group">
+    
+    <!-- Annual Interest Rate Field: Expected yearly return percentage -->
+    <!-- Annual Interest Rate Input -->
+    <p>
+      <label for="expected-return">Expected Return (%)</label>
+      <input
+        id="expected-return"
+        type="number"
+        [(ngModel)]="annualInterestRate"
+        name="annualInterestRate"
+        min="0"
+        max="100"
+        step="0.1"
+        required
+        title="Enter the expected annual return percentage (0-100)"
+      />
+    </p>
+    
+    <!-- Investment Duration Field: Number of years to invest -->
+    <!-- Investment Duration Input -->
+    <p>
+      <label for="duration">Duration (Years)</label>
+      <input
+        id="duration"
+        type="number"
+        [(ngModel)]="duration"
+        name="duration"
+        min="1"
+        max="100"
+        step="1"
+        required
+        title="Enter the investment duration in years"
+      />
+    </p>
+  </div>
+  
+  <!-- BUTTON GROUP: Calculate and Reset actions -->
+  <!-- Action Buttons -->
+  <p class="button-group">
+    <!-- Calculate Button: Triggers form submission and calculations -->
+    <button type="submit" title="Calculate investment results">Calculate</button>
+    <!-- Reset Button: Clears form and all results -->
+    <button type="button" (click)="onReset()" title="Reset form to default values">Reset</button>
+  </p>
+</form>

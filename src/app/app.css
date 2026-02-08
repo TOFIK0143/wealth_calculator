@@ -1,0 +1,42 @@
+/**
+ * Global Application Styles
+ * Base styles for the entire application
+ * 
+ * Design System:
+ * - Mobile-first responsive design
+ * - CSS Custom Properties for consistency
+ * - Modern box-sizing model
+ */
+
+/* === CSS Custom Properties (Variables) === */
+:root {
+  --color-background: #f5f5f5;
+  --color-text: #333;
+  --font-sans: "Roboto", sans-serif;
+  --transition-speed: 0.3s;
+}
+
+/* === Global Host Styling === */
+
+:host {
+  display: block;
+  background-color: var(--color-background);
+  min-height: 100vh;
+}
+
+/* === Universal Box Model === */
+
+* {
+  box-sizing: border-box;
+}
+
+/* === HTML/Body Reset === */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
